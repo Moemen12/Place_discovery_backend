@@ -54,7 +54,8 @@ class ProfileController extends Controller
 
             return response()->json([
                 'message' => 'Profile updated successfully',
-                'new_image' => $newImageName,
+                'new_image' => '/images/profile/' . $newImageName,
+                'name' => $request->name,
             ], JsonResponse::HTTP_OK);
         } else {
             return response()->json(['error' => 'Unauthorized action'], JsonResponse::HTTP_FORBIDDEN);
@@ -97,6 +98,6 @@ class ProfileController extends Controller
             ]);
         }
 
-        return response()->json(['message' => 'Data updated successfully'], JsonResponse::HTTP_OK);
+        return response()->json(['message' => 'Setting updated successfully'], JsonResponse::HTTP_OK);
     }
 }

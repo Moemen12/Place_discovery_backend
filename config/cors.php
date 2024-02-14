@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['*'], // change it to make only the my website frontend domain
 
     'allowed_origins_patterns' => ['*'],
 

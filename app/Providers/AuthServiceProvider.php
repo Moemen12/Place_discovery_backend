@@ -4,13 +4,9 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 
-use App\Models\Trip;
+
 use App\Models\User;
-use App\Models\UserFavorite;
-use App\Policies\TripPolicy;
-use App\Policies\UserFavoritePolicy;
-use App\Policies\UserPolicy;
-use Database\Factories\UserFactory;
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 

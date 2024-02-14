@@ -24,8 +24,8 @@ class UpdateUserProfileRequest extends FormRequest
     {
         return [
             'image_url' => 'nullable|string|image64',
-            'name' => 'required|string|min:5|max:20',
-            'bio' => 'nullable|max:100',
+            'name' => 'required|string|min:5|max:15',
+            'bio' => 'nullable|max:150',
         ];
     }
 }

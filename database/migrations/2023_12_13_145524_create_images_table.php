@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('profile_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('review_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('trip_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignUuid('trip_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('image_url')->nullable();
             $table->enum('image_for', Image::$image_usages);
             $table->timestamps();
