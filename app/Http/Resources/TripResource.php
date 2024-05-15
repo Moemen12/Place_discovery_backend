@@ -53,7 +53,8 @@ class TripResource extends JsonResource
 
 
         return [
-            'id' => $this->id,
+           
+             'user_id'=>$this->user->id,
             'username' => $this->user->name,
             'slug' => $this->slug,
             'title' => $this->title,

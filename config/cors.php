@@ -15,11 +15,12 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', 'api', 'http://localhost:5173'],
+    'paths' => ['api/*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'], // change it to make only the my website frontend domain
+    'allowed_origins' => ['https://wanderwise.space'],
+
 
     'allowed_origins_patterns' => ['*'],
 

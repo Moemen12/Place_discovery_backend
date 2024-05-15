@@ -22,34 +22,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-Route::middleware(['api'])->group(function () {
+Route::middleware('api')->group(function () {
     Route::post('/auth/register', [AuthController::class, 'register']);
     Route::post('/auth/login', [AuthController::class, 'login']);
     Route::get('/users/general/info', [UserController::class, 'getUsersInfo']);
     Route::get('/trip/{id}/{slug}/', [TripController::class, 'show']);
     Route::get('/profile/{id}/{username}', [UserController::class, 'getUserInfo']);
     Route::get('/trips', [TripController::class, 'index']);
-});
-Route::middleware('auth:sanctum')->group(function () {
 
-    Route::get('/user/trips', [TripController::class, 'AuthIndex']);
-    Route::post('/trip/create/review/', [ReviewController::class, 'add']);
-    Route::post('/trip/create/new_trip', [TripController::class, 'create']);
+    // Routes requiring authentication
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('/user/trips', [TripController::class, 'AuthIndex']);
+        Route::post('/trip/create/review/', [ReviewController::class, 'add']);
+        Route::post('/trip/create/new_trip', [TripController::class, 'create']);
 
-    Route::get('/trips/types', function () {
-        $user = Auth()->user();
-        $trip_types = Trip::$trip_place_type;
-        return new JsonResponse([
-            'profile_image' => $user->profile->image->image_url,
-            'trip_types' => $trip_types,
-        ]);
+        Route::get('/trips/types', function () {
+            $user = Auth()->user();
+            $trip_types = Trip::$trip_place_type;
+            return new JsonResponse([
+                'profile_image' => $user->profile->image->image_url,
+                'trip_types' => $trip_types,
+            ]);
+        });
+
+        Route::put('/auth/user/profile', [ProfileController::class, 'updateUserProfile']);
+        Route::get('/auth/user/profile', [ProfileController::class, 'getUserProfile']);
+        Route::put('/auth/user/settings', [ProfileController::class, 'updateSettings']);
+        Route::post('/auth/logout', [AuthController::class, 'logout']);
+        Route::post('/trip/make/rating', [RatingController::class, 'addRating']);
+        Route::delete('/trip/{id}/delete', [TripController::class, 'destroy']);
     });
-
-    Route::put('/auth/user/profile', [ProfileController::class, 'updateUserProfile']);
-    Route::get('/auth/user/profile', [ProfileController::class, 'getUserProfile']);
-    Route::put('/auth/user/settings', [ProfileController::class, 'updateSettings']);
-    Route::post('/auth/logout', [AuthController::class, 'logout']);
-    Route::post('/trip/make/rating', [RatingController::class, 'addRating']);
-    Route::delete('/trip/{id}/delete', [TripController::class, 'destroy']);
 });

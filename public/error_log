@@ -1,0 +1,10 @@
+[15-Feb-2024 11:49:26 UTC] PHP Warning:  require(/home/wandfpfn/wanderwise.backend.wanderwise.space/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/wandfpfn/wanderwise.backend.wanderwise.space/public/index.php on line 34
+[15-Feb-2024 11:49:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/wandfpfn/wanderwise.backend.wanderwise.space/public/../vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/wandfpfn/wanderwise.backend.wanderwise.space/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/wandfpfn/wanderwise.backend.wanderwise.space/public/index.php on line 34
+[15-Feb-2024 11:55:08 UTC] PHP Warning:  require(/home/wandfpfn/wanderwise.backend.wanderwise.space/vendor/autoload.php): Failed to open stream: No such file or directory in /home/wandfpfn/wanderwise.backend.wanderwise.space/public/index.php on line 34
+[15-Feb-2024 11:55:08 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/wandfpfn/wanderwise.backend.wanderwise.space/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/wandfpfn/wanderwise.backend.wanderwise.space/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/wandfpfn/wanderwise.backend.wanderwise.space/public/index.php on line 34
