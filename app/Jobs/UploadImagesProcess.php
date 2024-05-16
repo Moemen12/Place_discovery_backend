@@ -14,18 +14,14 @@ use Illuminate\Support\Facades\Storage;
 class UploadImagesProcess implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
- protected $tripId;
-    protected $imagesData;
-   
-      public function __construct($tripId, $imagesData)
+    public function __construct(public $tripId, public $imagesData)
     {
-        $this->tripId = $tripId;
-        $this->imagesData = $imagesData;
     }
 
     public function handle(): void
     {
-          $trip = Trip::find($this->tripId);
+        //New 
+        $trip = Trip::find($this->tripId);
 
         if ($trip) {
             foreach ($this->imagesData as $imageData) {
@@ -51,4 +47,3 @@ class UploadImagesProcess implements ShouldQueue
         }
     }
 }
-
